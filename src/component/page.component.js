@@ -18,8 +18,8 @@ function Pages () {
             const response = await getOriginal(data)
             if (response.status.code === 200) {
                 const originalUrl = response.data;
-                console.log(originalUrl);
-                // window.location.href = originalUrl;
+                //console.log(originalUrl);
+                window.location.href = originalUrl;
                 return null;
             } else {
                 navigate('/404')
