@@ -8,6 +8,8 @@ import Home from './component/home.component.js';
 import Login from './component/login.component';
 import Page from './component/page.component';
 import NotFoundPage from './component/notFoundPage.component';
+import Header from './component/header.component.js';
+import NavUser from './component/navuser.component.js';
 
 function App() {
 
@@ -32,6 +34,8 @@ function App() {
   
       return (
         <div className="container">
+          <NavUser/>
+          <Header />
           <Routes>
             <Route exact path='/' element={< Home />}></Route>
             <Route path='/home' element={< Home />}></Route>

@@ -5,8 +5,6 @@ import { getIPv4 } from "../service/ip.service"
 import { getShorten } from "../service/shorten.service"
 import { logout } from "../service/auth.service"
 
-import Header from './header.component.js';
-
 function Home() {
 
     const [state, setState] = React.useState({
@@ -117,7 +115,6 @@ function Home() {
     return (
         
         <div>
-            <Header />
                 <div className="row col-12 d-flex justify-content-center mb-4">
                     <h3>Url Shorten</h3>
                 </div>
