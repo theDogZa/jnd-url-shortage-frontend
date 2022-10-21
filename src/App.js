@@ -17,7 +17,8 @@ function App() {
     const navigate = useNavigate();
     let token = sessionStorage.getItem("token");
 
-  console.log(token,"--token")
+  console.log(pathName,'pathName');
+  
   
     React.useEffect(() => {
       if (["/login", "/register"].includes(pathName)) {
@@ -25,7 +26,6 @@ function App() {
           navigate('/home')
         }
       } else if (["/", "/home"].includes(pathName)) {
-        //console.log(token,"++token")
         if (!token) {
           navigate('/login')
         }
@@ -38,13 +38,12 @@ function App() {
           <Header />
           <Routes>
             <Route exact path='/' element={< Home />}></Route>
-            <Route path='/home' element={< Home />}></Route>
-            <Route path='/login' element={< Login />}></Route>
-            <Route path='/register' element={< Registration />}></Route>
-            <Route path=':handle' element={< Page />}></Route>
-            <Route path='404' element={< NotFoundPage />}></Route>
-            <Route path='*' element={< NotFoundPage />}></Route>
-
+            <Route exact path='/home' element={< Home />}></Route>
+            <Route exact path='/login' element={< Login />}></Route>
+            <Route exact path='/register' element={< Registration />}></Route>
+            <Route exact path='/404' element={< NotFoundPage />}></Route>
+            <Route exact path='/:handle' element={< Page />}></Route>
+            <Route exact path='*' element={< NotFoundPage />}></Route>
           </Routes>
         </div>
       )
