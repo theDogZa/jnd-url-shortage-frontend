@@ -1,9 +1,10 @@
 
 import * as React from 'react'
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getIPv4 } from "../service/ip.service"
 import { getShorten } from "../service/shorten.service"
-import { logout } from "../service/auth.service"
+import NavUser from './navuser.component.js';
+import Header from './header.component.js';
 
 function Home() {
 
@@ -50,7 +51,6 @@ function Home() {
             if (response.status.code === 200) {
                 console.log(response.status.message)
                 let shorten = urlOrigin + "/" + response.data
-
                 setState(previousInputs => ({ ...previousInputs, url_shorten: shorten }))
             }
         }
@@ -99,7 +99,7 @@ function Home() {
         sessionStorage.removeItem('token');
         sessionStorage.clear();
 
-        navigate("/");
+        navigate("/login");
     }
 
     React.useEffect(() => { 
@@ -115,6 +115,8 @@ function Home() {
     return (
         
         <div>
+            <NavUser />
+            <Header />
                 <div className="row col-12 d-flex justify-content-center mb-4">
                     <h3>Url Shorten</h3>
                 </div>
@@ -144,7 +146,7 @@ function Home() {
                 )}
 
                 <div className="d-flex justify-content-center mt-4">
-                    <Link  to="#" onClick={btnLogout}>Logout</Link>
+                    <a href="#" onClick={btnLogout}> Logout </a>
                 </div>
             </div>   
     )

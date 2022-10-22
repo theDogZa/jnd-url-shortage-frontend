@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import { register } from "../service/auth.service"
 import { getIPv4 } from "../service/ip.service"
+import Header from './header.component.js';
 
 const regExp = RegExp(
     /^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
@@ -120,6 +121,7 @@ function Registration() {
 
         return (
             <div>
+                <Header />
                 <div className="row col-12 d-flex justify-content-center mb-4">
                     <h3>Register</h3>
                 </div>

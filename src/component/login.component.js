@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../service/auth.service"
+import Header from './header.component.js';
 
 function Login() {
 
@@ -87,6 +88,7 @@ function Login() {
 
     return (
         <div>
+            <Header />
             <div className="row col-12 d-flex justify-content-center mb-4">
                 <h3>Login</h3>
             </div>
